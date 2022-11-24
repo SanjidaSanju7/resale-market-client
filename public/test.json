@@ -1,0 +1,86 @@
+[
+    {
+        "categoryName": "Lenovo",
+        "logo_url": "https://www.pngfind.com/pngs/m/600-6002930_lenovo-laptop-logo-hd-png-download.png",
+        "products": [
+            {
+                "categoryName": "Lenovo",
+                "name": "Lenovo ThinkPad X13s",
+                "image": "https://www.digitaltrends.com/wp-content/uploads/2022/08/lenovo-thinkpad-x13s-featured-e1660154249287.jpg?p=1",
+                "location": "Dhaka",
+                "resalePrice": 1301,
+                "originalPrice": 2169,
+                "usedYears": 2,
+                "sellersName": "Oliver",
+                "verification": "verified"
+            },
+            {
+                "categoryName": "Lenovo",
+                "name": "Lenovo IdeaPad Slim 7 Carbon ",
+                "image": "https://www.pcworld.com/wp-content/uploads/2022/04/Lenovo-IdeaPad-Slim-7-Carbon-overview.jpg?quality=50&strip=all&w=1024",
+                "location": "Sylhet",
+                "resalePrice": 911,
+                "originalPrice": 1169,
+                "usedYears": 1,
+                "sellersName": "Henry",
+                "verification": "verified"
+            }
+        ]
+    },
+    {
+        "categoryName": "HP",
+        "logo_url": "https://cdn.freebiesupply.com/images/large/2x/hewlett-packard-logo-black-and-white.png",
+        "products": [
+            {
+                "categoryName": "HP",
+                "name": "HP Pavilion 15 laptop (15-EG0010NR)",
+                "image": "https://www.techtoyreviews.com/wp-content/uploads/2021/01/HP-Pavilion-15-Review-6.jpg",
+                "location": "Khulna",
+                "resalePrice": 701,
+                "originalPrice": 1229,
+                "usedYears": 3,
+                "sellersName": "Hudson",
+                "verification": "verified"
+            },
+            {
+                "categoryName": "HP",
+                "name": "HP Laptop Intel Celeron N402",
+                "image": "https://galaxycomict.com/wp-content/uploads/2022/01/3-9.jpg",
+                "location": "Sylhet",
+                "resalePrice": 2511,
+                "originalPrice": 3169,
+                "usedYears": 1,
+                "sellersName": "Jake",
+                "verification": "verified"
+            }
+        ]
+    },
+    {
+        "categoryName": "DELL",
+        "logo_url": "https://e7.pngegg.com/pngimages/512/685/png-clipart-dell-smart-3rd-party-logo-encapsulated-postscript-computer-cdr-computer.png",
+        "products": [
+            {
+                "categoryName": "DELL",
+                "name": "DELL Latitude E5450 ",
+                "image": "https://i1.wp.com/thetechstall.com/wp-content/uploads/2020/09/Dell-Latitude-5450.jpg?resize=800%2C600&ssl=1",
+                "location": "Bogura",
+                "resalePrice": 1201,
+                "originalPrice": 2169,
+                "usedYears": 1,
+                "sellersName": "Jenny",
+                "verification": "verified"
+            },
+            {
+                "categoryName": "DELL",
+                "name": "Dell Inspiron 15 7000",
+                "image": "https://www.cnet.com/a/img/hub/2017/03/03/68f97ee9-f2f9-48ef-af5a-fc3b9a39ba75/dell-inspiron-15-7000-2017-12.jpg",
+                "location": "Dhaka",
+                "resalePrice": 889,
+                "originalPrice": 1278,
+                "usedYears": 2,
+                "sellersName": "Anderson",
+                "verification": "verified"
+            }
+        ]
+    }
+]
