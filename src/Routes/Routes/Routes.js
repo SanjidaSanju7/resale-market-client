@@ -1,5 +1,6 @@
 import Main from "../../Layout/Main";
 import Blog from "../../Pages/Blog/Blog";
+import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import Categories from "../../Pages/Home/Categories/Categories";
 import Products from "../../Pages/Home/Categories/Products/Products";
 import Home from "../../Pages/Home/Home/Home";
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
                 element: <Blog></Blog>
             }
         ]
+    },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>
     }
 ])
 

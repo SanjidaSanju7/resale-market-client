@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 
 const Login = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const { signIn } = useContext(AuthContext);
+    const [loginError, setLoginError] = useState('');
+
 
     const handleLogin = data => {
         console.log(data);
+        setLoginError('');
+        signIn(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                // navigate(from, { replace: true });
+            })
+            .catch(error => {
+                console.log(error.message)
+                setLoginError(error.message);
+            });
     }
 
     return (
@@ -34,6 +49,9 @@ const Login = () => {
                         {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                     </div>
                     <input value="Login" type="submit" className='btn btn-outline w-full mt-4' />
+                    <div>
+                        {loginError && <p className='text-red-600'>{loginError}</p>}
+                    </div>
                 </form>
                 <p>No account?<Link className='text-blue-500' to="/signup">Create new Account</Link></p>
                 <div className="divider">OR</div>
