@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Category from './Category/Category';
 
+
 const Categories = () => {
 
     const [categories, setCategories] = useState([])
@@ -24,7 +25,6 @@ const Categories = () => {
                     </Category>)
                 }
             </div>
-
         </div>
     );
 };
