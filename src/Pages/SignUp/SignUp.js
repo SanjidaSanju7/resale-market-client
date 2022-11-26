@@ -3,13 +3,19 @@ import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import useToken from '../../hooks/useToken';
 
 const SignUp = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { createUser, updateUser } = useContext(AuthContext);
+    const [signUpError, setSignUPError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('')
+    const [token] = useToken(createdUserEmail);
     const navigate = useNavigate()
-    const [signUpError, setSignUPError] = useState('')
+    if (token) {
+        navigate('/');
+    }
 
     const handleSignUp = (data) => {
         console.log(data);
@@ -24,8 +30,8 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        navigate('/')
-                        console.log(data.name, data.email);
+                        saveAllUser(data.name, data.email, data.role)
+                        console.log(data.name, data.email, data.role);
                     })
                     .catch(err => console.log(err));
             })
@@ -33,6 +39,21 @@ const SignUp = () => {
                 console.log(error)
                 setSignUPError(error.message)
             });
+    }
+
+    const saveAllUser = (name, email, role) => {
+        const user = { name, email, role };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                setCreatedUserEmail(email)
+            })
     }
 
     return (
@@ -65,9 +86,8 @@ const SignUp = () => {
                             {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                         </div>
                         <div className="form-control w-full max-w-xs">
-                            <label className="label"><span className="label-text">Select an Option</span></label>
-                            <select type='text' {...register("category", { required: true })} className="input input-bordered w-full max-w-xs" >
-                                <option value="">Select...</option>
+                            <label className="label"><span className="label-text">Select User Type</span></label>
+                            <select name='role' type='text' {...register("role", { required: true })} className="input input-bordered w-full max-w-xs" >
                                 <option value="Seller">Seller</option>
                                 <option value="Buyer">Buyer</option>
                             </select>
