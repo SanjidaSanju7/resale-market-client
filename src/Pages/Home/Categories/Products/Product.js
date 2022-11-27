@@ -3,7 +3,7 @@ import React from 'react';
 
 const Product = ({ product, setItem }) => {
 
-    const { sellersName, location, image, name, originalPrice, resalePrice, usedYears } = product;
+    const { sellersName, location, image, name, originalPrice, resalePrice, usedYears, time } = product;
     return (
         <div className="max-w-sm p-4 shadow-md dark:bg-gray-900 dark:text-gray-100 mt-14 mx-auto">
             <div className="flex justify-between pb-4 border-bottom">
@@ -16,7 +16,7 @@ const Product = ({ product, setItem }) => {
                 <div className="space-y-2">
                     <img src={image} alt="" className="block object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
                     <div className="flex items-center text-xs">
-                        <span>6 min ago</span>
+                        <span>{time}</span>
                     </div>
                 </div>
                 <div className="space-y-2 text-left">
