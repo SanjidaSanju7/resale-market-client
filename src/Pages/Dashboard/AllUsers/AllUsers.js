@@ -31,9 +31,9 @@ const AllUsers = () => {
 
     return (
         <div>
-            <h2 className="text-3xl">All Users</h2>
+            <h2 className="text-3xl font-bold mt-5">All Users</h2>
             <div className="overflow-x-auto">
-                <table className="table w-full">
+                <table className="table w-full mt-16">
                     <thead>
                         <tr>
                             <th></th>
@@ -49,13 +49,13 @@ const AllUsers = () => {
                         {
                             users.map((user, i) => <tr key={user._id}>
                                 <th>{i + 1}</th>
-                                <td>Image</td>
+                                <td><img className='avatar w-24 rounded' src={user.imageURL} alt="" /></td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
                                 <td>
 
-                                    <button onClick={() => handleMakeVerified(user._id)} className='btn btn-xs bg-blue-500'>Verify Now</button>
+                                    <button onClick={() => handleMakeVerified(user._id)} className='btn btn-xs'>Verify Now</button>
 
 
                                 </td>

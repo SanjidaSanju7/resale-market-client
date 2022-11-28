@@ -1,7 +1,6 @@
-import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+
+import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-// import { useLoaderData } from "react-router-dom";
 import BookingModal from "./BookingModal/BookingModal";
 import Product from "./Product";
 
@@ -17,7 +16,7 @@ const Products = () => {
 
     return (
         <div>
-            <h2>All Products</h2>
+            <h2 className="text-3xl font-bold mt-5">All Products</h2>
             <div className="grid grid-cols-1  lg:grid-cols-2 md:grid-cols-2">
                 {
                     products.map(product => <Product

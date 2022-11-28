@@ -23,8 +23,8 @@ const MyOrders = () => {
 
     return (
         <div>
-            <h3 className="text-3xl mb-5">My Orders</h3>
-            <div className="overflow-x-auto">
+            <h3 className="text-3xl font-bold mt-5">My Orders</h3>
+            <div className="overflow-x-auto mt-16">
                 <table className="table w-full">
                     <thead>
                         <tr>
@@ -38,7 +38,7 @@ const MyOrders = () => {
                         {
                             bookings.map((booking, i) => <tr key={booking._id}>
                                 <th>{i + 1}</th>
-                                <td><img className='avatar w-32 rounded' src={booking.image} alt="" /></td>
+                                <td><img className='avatar w-24 rounded' src={booking.image} alt="" /></td>
                                 <td>{booking.itemName}</td>
                                 <td>{booking.price}</td>
 

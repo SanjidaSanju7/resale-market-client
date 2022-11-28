@@ -71,7 +71,7 @@ const BookingModal = ({ item, setItem }) => {
                         <input name='location' type="text" placeholder="Meeting Location" className="input w-full input-bordered" />
                         <input name='phone' type="text" placeholder="Phone Number" className="input w-full input-bordered" />
                         <br />
-                        <input type="submit" value="submit" className='btn btn-sm btn-outline w-full ' />
+                        <input type="submit" value="submit" className='btn btn-sm gradient-color w-full ' />
                     </form>
                 </div>
             </div>

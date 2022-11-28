@@ -51,7 +51,7 @@ const AddProducts = () => {
                     console.log(product);
 
                     // save product information to the database
-                    fetch('http://localhost:5000/products', {
+                    fetch('http://localhost:5000/myproducts', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',
@@ -76,9 +76,9 @@ const AddProducts = () => {
 
     return (
         <div className="">
+            <h2 className='text-3xl font-bold mt-5' > Add a Product</h2>
             <div className='mt-14 flex justify-center items-center '>
-                <div className='w-1/2 p-8 border shadow-lg' >
-                    <h2 > Add a Product</h2>
+                <div className='w-1/2 p-8 border shadow-lg border-r-4 border-orange-500 rounded-lg' >
                     <form onSubmit={handleSubmit(handleAddProduct)} >
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Email</span></label>
@@ -137,7 +137,7 @@ const AddProducts = () => {
                         </div>
 
 
-                        <input value="Add Product" type="submit" className='btn btn-outline w-full mt-4' />
+                        <input value="Add Product" type="submit" className='btn gradient-color w-full mt-4' />
 
                     </form>
 
