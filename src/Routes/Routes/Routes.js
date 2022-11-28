@@ -11,6 +11,7 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import DisplayError from "../../Pages/Shared/DisplayError/DisplayError";
 import SignUp from "../../Pages/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
@@ -29,12 +30,12 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/categories/',
+                path: '/categories',
                 element: <Categories></Categories>
             },
             {
-                path: '/categories/:_id',
-                element: <Products></Products>,
+                path: 'categories/:_id',
+                element: < Products ></Products >,
                 loader: ({ params }) => fetch(`http://localhost:5000/products/${params._id}`)
 
             },

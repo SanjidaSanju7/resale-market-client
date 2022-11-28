@@ -55,7 +55,7 @@ const AllUsers = () => {
                                 <td>{user.role}</td>
                                 <td>
 
-                                    <button onClick={() => handleMakeVerified(user._id)} className='btn btn-xs bg-blue-500'>Unverified</button>
+                                    <button onClick={() => handleMakeVerified(user._id)} className='btn btn-xs bg-blue-500'>Verify Now</button>
 
 
                                 </td>

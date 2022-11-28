@@ -8,7 +8,7 @@ const Categories = () => {
 
     const { data: categories = [] } = useQuery({
         queryKey: ['categories'],
-        queryFn: () => fetch('http://localhost:5000/categories')
+        queryFn: () => fetch(`http://localhost:5000/categories`)
             .then(res => res.json())
     })
 
@@ -21,9 +21,8 @@ const Categories = () => {
                     categories.map(category => <Category
                         key={category._id}
                         category={category}
-                    >
-                    </Category>)
-                }
+                    ></Category>
+                    )}
             </div>
         </div>
     );

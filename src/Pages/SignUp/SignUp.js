@@ -30,8 +30,8 @@ const SignUp = () => {
                 }
                 updateUser(userInfo)
                     .then(() => {
-                        saveAllUser(data.name, data.email, data.role)
-                        console.log(data.name, data.email, data.role);
+                        saveAllUser(data.name, data.email, data.role, data.imageURL)
+                        console.log(data.name, data.email, data.role, data.imageURL);
                     })
                     .catch(err => console.log(err));
             })
@@ -41,8 +41,8 @@ const SignUp = () => {
             });
     }
 
-    const saveAllUser = (name, email, role) => {
-        const user = { name, email, role };
+    const saveAllUser = (name, email, role, imageURL) => {
+        const user = { name, email, role, imageURL };
         fetch('http://localhost:5000/users', {
             method: 'POST',
             headers: {
@@ -84,6 +84,10 @@ const SignUp = () => {
                                 pattern: { value: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])/, message: 'Password must have uppercase, number and special characters' }
                             })} className="input input-bordered w-full max-w-xs" />
                             {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
+                        </div>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"><span className="label-text">Image</span></label>
+                            <input type="imageURL" {...register("imageURL")} className="input input-bordered w-full max-w-xs" />
                         </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Select User Type</span></label>

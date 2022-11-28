@@ -4,6 +4,7 @@ import React from 'react';
 const Product = ({ product, setItem }) => {
 
     const { sellersName, location, image, name, originalPrice, resalePrice, usedYears, time } = product;
+
     return (
         <div className="max-w-sm p-4 shadow-md dark:bg-gray-900 dark:text-gray-100 mt-14 mx-auto">
             <div className="flex justify-between pb-4 border-bottom">

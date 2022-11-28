@@ -1,15 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import Loading from '../../Shared/Loading/Loading';
 
 const AddProducts = () => {
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const navigate = useNavigate();
     const imageHostKey = process.env.REACT_APP_imgbb_key;
+    const { user } = useContext(AuthContext)
 
     const { data: categories, isLoading } = useQuery({
         queryKey: ['category'],
@@ -34,6 +36,7 @@ const AddProducts = () => {
                 if (imgData.success) {
                     console.log(imgData.data.url);
                     const product = {
+                        email: data.email,
                         name: data.name,
                         categoryName: data.category,
                         resalePrice: data.price,
@@ -42,6 +45,7 @@ const AddProducts = () => {
                         condition: data.condition,
                         phone: data.condition,
                         time: data.time,
+                        description: data.description,
                         image: imgData.data.url
                     }
                     console.log(product);
@@ -58,7 +62,7 @@ const AddProducts = () => {
                         .then(res => res.json())
                         .then(result => {
                             console.log(result);
-                            toast.success(`${data.name} is added successfully`);
+                            toast.success("Product added successfully");
                             navigate('/dashboard/myproducts')
                         })
                 }
@@ -76,6 +80,12 @@ const AddProducts = () => {
                 <div className='w-1/2 p-8 border shadow-lg' >
                     <h2 > Add a Product</h2>
                     <form onSubmit={handleSubmit(handleAddProduct)} >
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label"><span className="label-text">Email</span></label>
+                            <input type="email" {...register("email")} className="input input-bordered w-full max-w-xs"
+                                value={user?.email} />
+                            {errors.email && <p className='text-red-600'>{errors.email?.message}</p>}
+                        </div>
                         <div className="form-control w-full max-w-xs">
                             <label className="label"> <span className="label-text">Product Name</span></label>
                             <input type="text" {...register("name")} className="input input-bordered w-full max-w-xs" />

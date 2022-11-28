@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
+// import { useLoaderData } from "react-router-dom";
 import BookingModal from "./BookingModal/BookingModal";
 import Product from "./Product";
 
@@ -7,7 +9,10 @@ import Product from "./Product";
 const Products = () => {
 
     const products = useLoaderData();
+
     const [item, setItem] = useState(null);
+
+
 
 
     return (
