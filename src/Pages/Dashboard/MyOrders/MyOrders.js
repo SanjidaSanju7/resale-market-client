@@ -51,7 +51,7 @@ const MyOrders = () => {
                                         </Link>
                                     }
                                     {
-                                        booking.price && booking.paid && <span className='btn btn-sm gradient-color'>Paid</span>
+                                        booking.price && booking.paid && <span className='text-green-500 font-bold'>Paid</span>
                                     }
                                 </td>
 

@@ -59,7 +59,7 @@ const SignUp = () => {
     return (
         <div className="">
             <div className='mt-14 flex justify-center items-center '>
-                <div className='w-96 p-8' >
+                <div className='w-96 p-8 border-r-4 border-orange-500 shadow-lg rounded-lg' >
                     <h2 > Create an Acoount</h2>
                     <form onSubmit={handleSubmit(handleSignUp)}>
                         <div className="form-control w-full max-w-xs">
@@ -92,16 +92,16 @@ const SignUp = () => {
                         <div className="form-control w-full max-w-xs">
                             <label className="label"><span className="label-text">Select User Type</span></label>
                             <select name='role' type='text' {...register("role", { required: true })} className="input input-bordered w-full max-w-xs" >
-                                <option value="Seller">Seller</option>
-                                <option value="Buyer">Buyer</option>
+                                <option value="seller">Seller</option>
+                                <option value="buyer">Buyer</option>
                             </select>
                             {errors.category && <p className='text-red-600'>{errors.category?.message}</p>}
                         </div>
 
-                        <input value="Sign Up" type="submit" className='btn btn-outline w-full mt-4' />
+                        <input value="Sign Up" type="submit" className='btn btn-sm gradient-color w-full mt-4' />
                         {signUpError && <p className='text-red-700'>{signUpError}</p>}
                     </form>
-                    <p>Already have an account?<Link className='text-blue-500' to="/login"> Login</Link></p>
+                    <p className='mt-2'>Already have an account?<Link className='text-orange-500' to="/login"> Login</Link></p>
 
                 </div>
             </div>

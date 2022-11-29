@@ -41,7 +41,7 @@ const Login = () => {
     return (
 
         <div className='mt-14 flex justify-center items-center '>
-            <div className='w-96 p-8' >
+            <div className='w-96 p-8 shadow-lg border-r-4 border-orange-500 rounded-lg'  >
                 <h2 >Please Login</h2>
                 <form onSubmit={handleSubmit(handleLogin)}>
                     <div className="form-control w-full max-w-xs">
@@ -59,14 +59,14 @@ const Login = () => {
                         })} className="input input-bordered w-full max-w-xs" />
                         {errors.password && <p className='text-red-600'>{errors.password?.message}</p>}
                     </div>
-                    <input value="Login" type="submit" className='btn btn-outline w-full mt-4' />
+                    <input value="Login" type="submit" className='btn btn-sm gradient-color w-full mt-4' />
                     <div>
                         {loginError && <p className='text-red-600'>{loginError}</p>}
                     </div>
                 </form>
-                <p>No account?<Link className='text-blue-500' to="/signup">Create new Account</Link></p>
+                <p className='mt-4'>Don't have an account yet?<Link className='text-orange-500 ' to="/signup">Create new Account</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'><FaGoogle className='mr-2 '></FaGoogle>
+                <button className='btn btn-sm w-full gradient-color'><FaGoogle className='mr-2 '></FaGoogle>
                     CONTINUE WITH GOOGLE</button>
             </div>
         </div>

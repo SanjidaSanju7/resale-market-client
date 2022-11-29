@@ -29,6 +29,32 @@ const AllUsers = () => {
             })
     }
 
+
+    const handleDelete = user => {
+        console.log(user);
+        const proceed = window.confirm("Are you sure, you want to delete this user?");
+
+        if (proceed) {
+            fetch(`http://localhost:5000/users/${user}`, {
+                method: 'DELETE',
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                }
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+                        toast.success("Deleted Successfully")
+                    }
+                })
+        }
+    }
+
+
+
+
+
     return (
         <div>
             <h2 className="text-3xl font-bold mt-5">All Users</h2>
@@ -49,25 +75,30 @@ const AllUsers = () => {
                         {
                             users.map((user, i) => <tr key={user._id}>
                                 <th>{i + 1}</th>
-                                <td><img className='avatar w-24 rounded' src={user.imageURL} alt="" /></td>
+                                <td><div className="avatar">
+                                    <div className="w-24 rounded-full">
+                                        <img src={user.imageURL} alt="" />
+                                    </div>
+                                </div></td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{user.role}</td>
                                 <td>
-                                    <button onClick={() => handleMakeVerified(user._id)} className='btn btn-xs'>Verify</button>
-
-
-
+                                    {
+                                        !user.verify && <button onClick={() => handleMakeVerified(user._id)} className='btn btn-xs'>Verify</button>
+                                    }
                                 </td>
-                                <td><button className='btn btn-xs bg-red-500'>Delete</button></td>
+
+                                <td><button onClick={() => handleDelete(user._id)} className='btn btn-xs bg-red-500'>Delete</button></td>
                             </tr>)
                         }
 
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
+
 
 export default AllUsers;
