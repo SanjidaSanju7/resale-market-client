@@ -7,14 +7,14 @@ const AllUsers = () => {
     const { data: users = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('https://resale-market-server-side-nu.vercel.app/users');
             const data = await res.json();
             return data;
         }
     });
 
     const handleMakeVerified = id => {
-        fetch(`http://localhost:5000/users/verified/${id}`, {
+        fetch(`https://resale-market-server-side-nu.vercel.app/users/verified/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -35,7 +35,7 @@ const AllUsers = () => {
         const proceed = window.confirm("Are you sure, you want to delete this user?");
 
         if (proceed) {
-            fetch(`http://localhost:5000/users/${user}`, {
+            fetch(`https://resale-market-server-side-nu.vercel.app/users/${user}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

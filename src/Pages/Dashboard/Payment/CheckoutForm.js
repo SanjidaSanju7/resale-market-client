@@ -15,7 +15,7 @@ const CheckoutForm = ({ booking }) => {
 
     useEffect(() => {
 
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://resale-market-server-side-nu.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const CheckoutForm = ({ booking }) => {
                 bookingId: _id
             }
 
-            fetch('http://localhost:5000/payments', {
+            fetch('https://resale-market-server-side-nu.vercel.app/payments', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -128,7 +128,7 @@ const CheckoutForm = ({ booking }) => {
                     }}
                 />
                 <button
-                    className='btn btn-sm mt-4 btn-primary'
+                    className='btn btn-sm mt-4 gradient-color'
                     type="submit"
                     disabled={!stripe || !clientSecret || processing}>
                     Pay

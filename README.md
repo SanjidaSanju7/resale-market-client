@@ -1,9 +1,9 @@
-### SellBroke || Full-Stack
+# SellBroke || Full-Stack
 
-## [Live Link] () 
+## [Live Link] (https://resale-market-31c5c.web.app/) 
 
-# **Admin Email: ali@fa.com**
-# **Admin Pass: Aly5$3H**
+## **Admin Email: ali@fa.com**
+## **Admin Pass: Aly5$3H**
 
 
 ## Basic Project Structure Setup And Functionality

@@ -15,7 +15,7 @@ const MyProducts = () => {
     }
 
 
-    const url = `http://localhost:5000/myproducts?email=${user?.email}`;
+    const url = `https://resale-market-server-side-nu.vercel.app/myproducts?email=${user?.email}`;
 
     const { data: products, isLoading, refetch } = useQuery({
         queryKey: ['products', user?.email],
@@ -32,7 +32,7 @@ const MyProducts = () => {
 
 
     const handleDeleteProduct = product => {
-        fetch(`http://localhost:5000/myproducts/${product._id}`, {
+        fetch(`https://resale-market-server-side-nu.vercel.app/myproducts/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

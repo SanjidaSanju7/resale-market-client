@@ -43,7 +43,7 @@ const SignUp = () => {
 
     const saveAllUser = (name, email, role, imageURL) => {
         const user = { name, email, role, imageURL };
-        fetch('http://localhost:5000/users', {
+        fetch('https://resale-market-server-side-nu.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

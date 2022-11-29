@@ -39,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: 'categories/:_id',
                 element: < Products ></Products >,
-                loader: ({ params }) => fetch(`http://localhost:5000/products/${params._id}`)
+                loader: ({ params }) => fetch(`https://resale-market-server-side-nu.vercel.app/products/${params._id}`)
 
             },
             {
@@ -80,7 +80,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://resale-market-server-side-nu.vercel.app/bookings/${params.id}`)
             }
 
         ]
