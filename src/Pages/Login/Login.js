@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import useToken from '../../hooks/useToken';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const Login = () => {
@@ -20,6 +21,18 @@ const Login = () => {
 
     if (token) {
         navigate(from, { replace: true });
+    }
+
+    const { providerLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
 
     const handleLogin = data => {
@@ -66,7 +79,7 @@ const Login = () => {
                 </form>
                 <p className='mt-4'>Don't have an account yet?<Link className='text-orange-500 ' to="/signup">Create new Account</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-sm w-full gradient-color'><FaGoogle className='mr-2 '></FaGoogle>
+                <button onClick={handleGoogleSignIn} className='btn btn-sm w-full gradient-color'><FaGoogle className='mr-2 '></FaGoogle>
                     CONTINUE WITH GOOGLE</button>
             </div>
         </div>

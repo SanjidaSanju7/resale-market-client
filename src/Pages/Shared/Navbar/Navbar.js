@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import React, { useContext } from 'react';
+import image from '../../../assets/images/favicon (2).png';
 import './Navbar.css'
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
@@ -37,6 +38,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
+                <img className='w-1/12' src={image} alt="" />
                 <Link to="/" className="btn btn-ghost normal-case text-xl">SellBroke</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
